@@ -19,59 +19,59 @@ services:
                 window: 60s
         command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export 
 
-minio2:
-    image: minio/minio
-    volumes:
-        - docker-data2:/export
-    ports:
-        - "9002:9000"
-    networks:
-        - minio_distributed
-    environment:
-        MINIO_ACCESS_KEY: JVHPHHVZ5ALC4398ZHJQCD
-        MINIO_SECRET_KEY: bUQnd7UFy6dG50JoJovNabzj*Szzm35LB^04fwZ
-    deploy:
-        restart_policy:
-            delay: 10s
-            max_attempts: 10
-            window: 60s
-    command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export 
+    minio2:
+        image: minio/minio
+        volumes:
+            - docker-data2:/export
+        ports:
+            - "9002:9000"
+        networks:
+            - minio_distributed
+        environment:
+            MINIO_ACCESS_KEY: JVHPHHVZ5ALC4398ZHJQCD
+            MINIO_SECRET_KEY: bUQnd7UFy6dG50JoJovNabzj*Szzm35LB^04fwZ
+        deploy:
+            restart_policy:
+                delay: 10s
+                max_attempts: 10
+                window: 60s
+        command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export 
 
-minio3:
-    image: minio/minio
-    volumes:
-        - docker-data3:/export
-    ports:
-        - "9003:9000"
-    networks:
-        - minio_distributed
-    environment:
-        MINIO_ACCESS_KEY: JVHPHHVZ5ALC4398ZHJQCD
-        MINIO_SECRET_KEY: bUQnd7UFy6dG50JoJovNabzj*Szzm35LB^04fwZ
-    deploy:
-        restart_policy:
-            delay: 10s
-            max_attempts: 10
-            window: 60s
-    command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export 
+    minio3:
+        image: minio/minio
+        volumes:
+            - docker-data3:/export
+        ports:
+            - "9003:9000"
+        networks:
+            - minio_distributed
+        environment:
+            MINIO_ACCESS_KEY: JVHPHHVZ5ALC4398ZHJQCD
+            MINIO_SECRET_KEY: bUQnd7UFy6dG50JoJovNabzj*Szzm35LB^04fwZ
+        deploy:
+            restart_policy:
+                delay: 10s
+                max_attempts: 10
+                window: 60s
+        command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export 
 
-minio4:
-    image: minio/minio
-    volumes:
-        - docker-data4:/export
-    ports:
-        - "9004:9000"
-    networks:
-        - minio_distributed
-    environment:
-        MINIO_ACCESS_KEY: JVHPHHVZ5ALC4398ZHJQCD
-        MINIO_SECRET_KEY: bUQnd7UFy6dG50JoJovNabzj*Szzm35LB^04fwZ
-    deploy:
-        restart_policy:
-            delay: 10s
-            max_attempts: 10
-            window: 60s
-    command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export 
+    minio4:
+        image: minio/minio
+        volumes:
+            - docker-data4:/export
+        ports:
+            - "9004:9000"
+        networks:
+            - minio_distributed
+        environment:
+            MINIO_ACCESS_KEY: JVHPHHVZ5ALC4398ZHJQCD
+            MINIO_SECRET_KEY: bUQnd7UFy6dG50JoJovNabzj*Szzm35LB^04fwZ
+        deploy:
+            restart_policy:
+                delay: 10s
+                max_attempts: 10
+                window: 60s
+        command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export 
 
 volumes:
     docker-data1:
