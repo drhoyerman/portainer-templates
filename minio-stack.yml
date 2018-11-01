@@ -14,9 +14,9 @@ services:
             MINIO_SECRET_KEY: bUQnd7UFy6dG50JoJovNabzj*Szzm35LB^04fwZ
         deploy:
             restart_policy:
-            delay: 10s
-            max_attempts: 10
-            window: 60s
+                delay: 10s
+                max_attempts: 10
+                window: 60s
         command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export 
 
 minio2:
@@ -32,9 +32,9 @@ minio2:
         MINIO_SECRET_KEY: bUQnd7UFy6dG50JoJovNabzj*Szzm35LB^04fwZ
     deploy:
         restart_policy:
-        delay: 10s
-        max_attempts: 10
-        window: 60s
+            delay: 10s
+            max_attempts: 10
+            window: 60s
     command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export 
 
 minio3:
@@ -50,9 +50,9 @@ minio3:
         MINIO_SECRET_KEY: bUQnd7UFy6dG50JoJovNabzj*Szzm35LB^04fwZ
     deploy:
         restart_policy:
-        delay: 10s
-        max_attempts: 10
-        window: 60s
+            delay: 10s
+            max_attempts: 10
+            window: 60s
     command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export 
 
 minio4:
@@ -68,9 +68,9 @@ minio4:
         MINIO_SECRET_KEY: bUQnd7UFy6dG50JoJovNabzj*Szzm35LB^04fwZ
     deploy:
         restart_policy:
-        delay: 10s
-        max_attempts: 10
-        window: 60s
+            delay: 10s
+            max_attempts: 10
+            window: 60s
     command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export 
 
 volumes:
