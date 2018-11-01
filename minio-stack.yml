@@ -11,7 +11,7 @@ services:
             - minio_distributed
         environment:
             MINIO_ACCESS_KEY: JVHPHHVZ5ALC4398ZHJQCD
-            MINIO_SECRET_KEY: bUQnd7UFy6dG50JoJovNabzj*Szzm35LB$^04fwZ
+            MINIO_SECRET_KEY: bUQnd7UFy6dG50JoJovNabzj*Szzm35LB^04fwZ
         deploy:
             restart_policy:
             delay: 10s
