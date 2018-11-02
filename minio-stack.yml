@@ -18,9 +18,9 @@ services:
                 delay: 10s
                 max_attempts: 10
                 window: 60s
-        placement:
-            constraints:
-                - node.labels.minio1==true
+            placement:
+                constraints:
+                    - node.labels.minio1==true
         command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export 
 
     minio2:
@@ -40,9 +40,9 @@ services:
                 delay: 10s
                 max_attempts: 10
                 window: 60s
-        placement:
-            constraints:
-                - node.labels.minio2==true
+            placement:
+                constraints:
+                    - node.labels.minio2==true
         command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export 
 
     minio3:
@@ -62,9 +62,9 @@ services:
                 delay: 10s
                 max_attempts: 10
                 window: 60s
-        placement:
-            constraints:
-                - node.labels.minio3==true
+            placement:
+                constraints:
+                    - node.labels.minio3==true
         command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export 
 
     minio4:
@@ -84,9 +84,9 @@ services:
                 delay: 10s
                 max_attempts: 10
                 window: 60s
-        placement:
-            constraints:
-                - node.labels.minio4==true
+            placement:
+                constraints:
+                    - node.labels.minio4==true
         command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export 
 
 volumes:
