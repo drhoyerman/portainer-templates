@@ -3,6 +3,7 @@ version: '3'
 services:
     minio1:
         image: minio/minio
+        hostname: minio1
         volumes:
             - docker-data1:/export
         ports:
@@ -17,10 +18,14 @@ services:
                 delay: 10s
                 max_attempts: 10
                 window: 60s
+        placement:
+            constraints:
+                - node.labels.minio1==true
         command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export 
 
     minio2:
         image: minio/minio
+        hostname: minio2
         volumes:
             - docker-data2:/export
         ports:
@@ -35,10 +40,14 @@ services:
                 delay: 10s
                 max_attempts: 10
                 window: 60s
+        placement:
+            constraints:
+                - node.labels.minio2==true
         command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export 
 
     minio3:
         image: minio/minio
+        hostname: minio3
         volumes:
             - docker-data3:/export
         ports:
@@ -53,10 +62,14 @@ services:
                 delay: 10s
                 max_attempts: 10
                 window: 60s
+        placement:
+            constraints:
+                - node.labels.minio3==true
         command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export 
 
     minio4:
         image: minio/minio
+        hostname: minio4
         volumes:
             - docker-data4:/export
         ports:
@@ -71,6 +84,9 @@ services:
                 delay: 10s
                 max_attempts: 10
                 window: 60s
+        placement:
+            constraints:
+                - node.labels.minio4==true
         command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export 
 
 volumes:
