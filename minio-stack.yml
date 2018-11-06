@@ -91,9 +91,29 @@ services:
 
 volumes:
     docker-data1:
+        driver: local
+        driver_opts:
+            type: 'none'
+            o: 'bind'
+            device: '/data'
     docker-data2:
+        driver: local
+        driver_opts:
+            type: 'none'
+            o: 'bind'
+            device: '/data'
     docker-data3:
+        driver: local
+        driver_opts:
+            type: 'none'
+            o: 'bind'
+            device: '/data'
     docker-data4:
+        driver: local
+        driver_opts:
+            type: 'none'
+            o: 'bind'
+            device: '/data'
 
 networks:
     minio_distributed:
