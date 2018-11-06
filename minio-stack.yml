@@ -5,7 +5,7 @@ services:
         image: minio/minio
         hostname: minio1
         volumes:
-            - docker-data:/export
+            - docker-data1:/export
         ports:
             - "9001:9000"
         networks:
@@ -27,7 +27,7 @@ services:
         image: minio/minio
         hostname: minio2
         volumes:
-            - docker-data:/export
+            - docker-data2:/export
         ports:
             - "9002:9000"
         networks:
@@ -49,7 +49,7 @@ services:
         image: minio/minio
         hostname: minio3
         volumes:
-            - docker-data:/export
+            - docker-data3:/export
         ports:
             - "9003:9000"
         networks:
@@ -71,7 +71,7 @@ services:
         image: minio/minio
         hostname: minio4
         volumes:
-            - docker-data:/export
+            - docker-data4:/export
         ports:
             - "9004:9000"
         networks:
@@ -90,12 +90,30 @@ services:
         command: server http://minio1/export http://minio2/export http://minio3/export http://minio4/export 
 
 volumes:
-    docker-data:
+    docker-data1:
         driver: local
         driver_opts:
-            type: none
-            o: bind
-            device: /data
+            type: 'none'
+            o: 'bind'
+            device: '/data'
+    docker-data2:
+        driver: local
+        driver_opts:
+            type: 'none'
+            o: 'bind'
+            device: '/data'
+    docker-data3:
+        driver: local
+        driver_opts:
+            type: 'none'
+            o: 'bind'
+            device: '/data'
+    docker-data4:
+        driver: local
+        driver_opts:
+            type: 'none'
+            o: 'bind'
+            device: '/data'
 
 networks:
     minio_distributed:
