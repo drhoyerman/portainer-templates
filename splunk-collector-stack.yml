@@ -14,7 +14,6 @@ services:
             - COLLECTOR__SPLUNK_TOKEN=output.splunk__token=6886912c-2ff9-4b54-a0cb-59fdd3c41f04
             - COLLECTOR__SPLUNK_INSECURE=output.splunk__insecure=true
             - COLLECTOR__EULA=general__acceptEULA=true
-        restart: always
         deploy:
             mode: global
             restart_policy:
@@ -26,7 +25,6 @@ services:
                 reservations:
                     cpus: '0.1'
                     memory: 64M
-        privileged: true
 
 volumes:
     collector_data:
