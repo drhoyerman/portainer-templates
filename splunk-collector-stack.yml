@@ -9,11 +9,6 @@ services:
             - /var/lib/docker/:/rootfs/var/lib/docker/:ro
             - /var/run/docker.sock:/rootfs/var/run/docker.sock:ro
             - collector_data:/data/
-        environment:
-            - COLLECTOR__SPLUNK_URL=output.splunk__url=https://hec.cablelabs.com:8088/services/collector/event/1.0
-            - COLLECTOR__SPLUNK_TOKEN=output.splunk__token=6886912c-2ff9-4b54-a0cb-59fdd3c41f04
-            - COLLECTOR__SPLUNK_INSECURE=output.splunk__insecure=true
-            - COLLECTOR__EULA=general__acceptEULA=true
         deploy:
             mode: global
             restart_policy:
