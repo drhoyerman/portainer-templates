@@ -1,33 +1,32 @@
 version: "3.3"
 services:
-
-  collectorfordocker:
-    image: outcoldsolutions/collectorfordocker:latest
-    volumes:
-      - /sys/fs/cgroup:/rootfs/sys/fs/cgroup:ro
-      - /proc:/rootfs/proc:ro
-      - /var/log:/rootfs/var/log:ro
-      - /var/lib/docker/:/rootfs/var/lib/docker/:ro
-      - /var/run/docker.sock:/rootfs/var/run/docker.sock:ro
-      - collector_data:/data/
-    environment:
-      - COLLECTOR__SPLUNK_URL=output.splunk__url=https://hec.cablelabs.com:8088/services/collector/event/1.0
-      - COLLECTOR__SPLUNK_TOKEN=output.splunk__token=6886912c-2ff9-4b54-a0cb-59fdd3c41f04
-      - COLLECTOR__SPLUNK_INSECURE=output.splunk__insecure=true
-      - COLLECTOR__EULA=general__acceptEULA=true
-    restart: always
-    deploy:
-      mode: global
-      restart_policy:
-        condition: any
-      resources:
-        limits:
-          cpus: '1'
-          memory: 256M
-        reservations:
-          cpus: '0.1'
-          memory: 64M
-    privileged: true
+    collectorfordocker:
+        image: outcoldsolutions/collectorfordocker:latest
+        volumes:
+            - /sys/fs/cgroup:/rootfs/sys/fs/cgroup:ro
+            - /proc:/rootfs/proc:ro
+            - /var/log:/rootfs/var/log:ro
+            - /var/lib/docker/:/rootfs/var/lib/docker/:ro
+            - /var/run/docker.sock:/rootfs/var/run/docker.sock:ro
+            - collector_data:/data/
+        environment:
+            - COLLECTOR__SPLUNK_URL=output.splunk__url=https://hec.cablelabs.com:8088/services/collector/event/1.0
+            - COLLECTOR__SPLUNK_TOKEN=output.splunk__token=6886912c-2ff9-4b54-a0cb-59fdd3c41f04
+            - COLLECTOR__SPLUNK_INSECURE=output.splunk__insecure=true
+            - COLLECTOR__EULA=general__acceptEULA=true
+        restart: always
+        deploy:
+            mode: global
+            restart_policy:
+                condition: any
+            resources:
+                limits:
+                    cpus: '1'
+                    memory: 256M
+                reservations:
+                    cpus: '0.1'
+                    memory: 64M
+        privileged: true
 
 volumes:
-  collector_data:
+    collector_data:
