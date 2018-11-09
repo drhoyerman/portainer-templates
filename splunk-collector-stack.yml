@@ -9,6 +9,11 @@ services:
             - /var/lib/docker/:/rootfs/var/lib/docker/:ro
             - /var/run/docker.sock:/rootfs/var/run/docker.sock:ro
             - collector_data:/data/
+        environment:
+            - COLLECTOR__SPLUNK_URL=$COLLECTOR__SPLUNK_URL
+            - COLLECTOR__SPLUNK_TOKEN=$COLLECTOR__SPLUNK_TOKEN
+            - COLLECTOR__SPLUNK_INSECURE=$COLLECTOR__SPLUNK_INSECURE
+            - COLLECTOR__EULA=$COLLECTOR__EULA
         deploy:
             mode: global
             restart_policy:
