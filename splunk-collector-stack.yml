@@ -1,7 +1,7 @@
 version: "3.3"
 services:
     collectorfordocker:
-        image: outcoldsolutions/collectorfordocker:5.2
+        image: outcoldsolutions/collectorfordocker:latest
         volumes:
             - /sys/fs/cgroup:/rootfs/sys/fs/cgroup:ro
             - /proc:/rootfs/proc:ro
@@ -15,7 +15,6 @@ services:
             - COLLECTOR__SPLUNK_INSECURE=$COLLECTOR__SPLUNK_INSECURE
             - COLLECTOR__EULA=$COLLECTOR__EULA
             - COLLECTOR__LOGLEVEL=$COLLECTOR__LOGLEVEL
-            - COLLECTOR__PROCDISABLED=$COLLECTOR__PROCDISABLED
         deploy:
             mode: global
             restart_policy:
