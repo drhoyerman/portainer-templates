@@ -15,6 +15,7 @@ services:
             - COLLECTOR__SPLUNK_INSECURE=$COLLECTOR__SPLUNK_INSECURE
             - COLLECTOR__EULA=$COLLECTOR__EULA
             - COLLECTOR__LOGLEVEL=$COLLECTOR__LOGLEVEL
+            - COLLECTOR__LICENSE=$COLLECTOR__LICENSE
         deploy:
             mode: global
             restart_policy:
