@@ -2,13 +2,6 @@ version: "3.3"
 services:
     atlantis:
         image: runatlantis/atlantis:latest
-        volumes:
-            - /sys/fs/cgroup:/rootfs/sys/fs/cgroup:ro
-            - /proc:/rootfs/proc:ro
-            - /var/log:/rootfs/var/log:ro
-            - /var/lib/docker/:/rootfs/var/lib/docker/:ro
-            - /var/run/docker.sock:/rootfs/var/run/docker.sock:ro
-            - collector_data:/data/
         environment:
             - URL=$URL
             - USERNAME=$USERNAME
