@@ -1,0 +1,31 @@
+version: "3.3"
+services:
+    atlantis:
+        image: runatlantis/atlantis:latest
+        volumes:
+            - /sys/fs/cgroup:/rootfs/sys/fs/cgroup:ro
+            - /proc:/rootfs/proc:ro
+            - /var/log:/rootfs/var/log:ro
+            - /var/lib/docker/:/rootfs/var/lib/docker/:ro
+            - /var/run/docker.sock:/rootfs/var/run/docker.sock:ro
+            - collector_data:/data/
+        environment:
+            - URL=$URL
+            - USERNAME=$USERNAME
+            - TOKEN=$TOKEN
+            - SECRET=$SECRET
+            - HOSTNAME=$HOSTNAME
+            - REPO_WHITELIST=$REPO_WHITELIST
+        deploy:
+          replicas: 1
+          labels:
+            - com.df.notify=true
+            - com.df.port=4141
+            - com.df.httpsOnly=true
+            - com.df.serviceDomain=atlantis-tf.cablelabs.com
+            - com.df.servicePath=/
+        networks:
+          - proxy
+networks:
+  proxy:
+    external: true
