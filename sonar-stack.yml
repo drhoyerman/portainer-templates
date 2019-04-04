@@ -7,7 +7,7 @@ services:
           labels:
             - com.df.notify=true
             - com.df.port=9000
-            - com.df.httpsOnly=true
+            - com.df.httpsOnly=false
             - com.df.serviceDomain=sonar.cablelabs.com
             - com.df.servicePath=/
         networks:
