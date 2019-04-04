@@ -1,0 +1,17 @@
+version: "3.3"
+services:
+    sonarqube:
+        image: sonarqube:lts
+        deploy:
+          replicas: 1
+          labels:
+            - com.df.notify=true
+            - com.df.port=9000
+            - com.df.httpsOnly=true
+            - com.df.serviceDomain=sonar.cablelabs.com
+            - com.df.servicePath=/
+        networks:
+          - proxy
+networks:
+  proxy:
+    external: true
