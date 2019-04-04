@@ -3,15 +3,20 @@ services:
     sonarqube:
         image: sonarqube:lts
         deploy:
-          replicas: 1
-          labels:
-            - com.df.notify=true
-            - com.df.port=9000
-            - com.df.httpsOnly=false
-            - com.df.serviceDomain=sonar.cablelabs.com
-            - com.df.servicePath=/
+            replicas: 1
+            labels:
+                - com.df.notify=true
+                - com.df.port=9000
+                - com.df.httpsOnly=false
+                - com.df.serviceDomain=sonar.cablelabs.com
+                - com.df.servicePath=/
+        volumes:
+            - /data/sonar/conf:/opt/sonarqube/conf
+            - /data/sonar/logs:/opt/sonarqube/data
+            - /data/sonar/conf:/opt/sonarqube/logs
+            - /data/sonar/extensions:/opt/sonarqube/extensions 
         networks:
-          - proxy
+            - proxy
 networks:
-  proxy:
-    external: true
+    proxy:
+        external: true
