@@ -3,12 +3,13 @@ services:
     atlantis:
         image: runatlantis/atlantis:latest
         environment:
-            - URL=$URL
-            - USERNAME=$USERNAME
-            - TOKEN=$TOKEN
-            - SECRET=$SECRET
             - HOSTNAME=$HOSTNAME
-            - REPO_WHITELIST=$REPO_WHITELIST
+            - ATLANTIS_ATLANTIS_URL=$ATLANTIS_ATLANTIS_URL
+            - ATLANTIS_GITLAB_USER=$ATLANTIS_GITLAB_USER
+            - ATLANTIS_GITLAB_TOKEN=$ATLANTIS_GITLAB_TOKEN
+            - ATLANTIS_GITLAB_WEBHOOK_SECRET=$ATLANTIS_GITLAB_WEBHOOK_SECRET
+            - ATLANTIS_GITLAB_HOSTNAME=$ATLANTIS_GITLAB_HOSTNAME
+            - ATLANTIS_REPO_WHITELIST=$ATLANTIS_REPO_WHITELIST
         deploy:
           replicas: 1
           labels:
