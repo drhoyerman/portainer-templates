@@ -10,12 +10,13 @@ services:
             - ATLANTIS_GITLAB_WEBHOOK_SECRET=$ATLANTIS_GITLAB_WEBHOOK_SECRET
             - ATLANTIS_GITLAB_HOSTNAME=$ATLANTIS_GITLAB_HOSTNAME
             - ATLANTIS_REPO_WHITELIST=$ATLANTIS_REPO_WHITELIST
+            - ATLANTIS_TFE_TOKEN=$ATLANTIS_TFE_TOKEN
         deploy:
           replicas: 1
           labels:
             - com.df.notify=true
             - com.df.port=4141
-            - com.df.httpsOnly=true
+            - com.df.httpsOnly=false
             - com.df.serviceDomain=atlantis-tf.cablelabs.com
             - com.df.servicePath=/
         networks:
