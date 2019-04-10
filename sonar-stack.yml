@@ -22,7 +22,7 @@ services:
             - proxy
 
     db:
-        image: postgres
+        image: postgres:latest
         environment:
             - POSTGRES_USER=sonar
             - POSTGRES_PASSWORD=sonar
