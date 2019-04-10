@@ -27,7 +27,7 @@ services:
             - POSTGRES_USER=sonar
             - POSTGRES_PASSWORD=sonar
         volumes:
-            - /data/sonar/data:/var/lib/postgresql/data
+            - /data/sonar/data/db:/var/lib/postgresql/data
         networks:
             - sonarnet
 
