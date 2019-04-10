@@ -10,13 +10,29 @@ services:
                 - com.df.httpsOnly=false
                 - com.df.serviceDomain=sonar.cablelabs.com
                 - com.df.servicePath=/
+        environment:
+            - sonar.jdbc.url=jdbc:postgresql://db:5432/sonar
         volumes:
             - /data/sonar/conf:/opt/sonarqube/conf
-            - /data/sonar/logs:/opt/sonarqube/data
-            - /data/sonar/conf:/opt/sonarqube/logs
+            - /data/sonar/data:/opt/sonarqube/data
+            - /data/sonar/logs:/opt/sonarqube/logs
             - /data/sonar/extensions:/opt/sonarqube/extensions 
         networks:
+            - sonarnet
             - proxy
+
+    db:
+        image: postgres
+        environment:
+            - POSTGRES_USER=sonar
+            - POSTGRES_PASSWORD=sonar
+        volumes:
+            - /data/sonar/data:/var/lib/postgresql/data
+        networks:
+            - sonarnet
+
 networks:
+    sonarnet:
+        external: true
     proxy:
         external: true
