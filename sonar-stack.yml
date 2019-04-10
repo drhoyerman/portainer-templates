@@ -33,6 +33,6 @@ services:
 
 networks:
     sonarnet:
-        external: true
+        external: false
     proxy:
         external: true
