@@ -11,6 +11,7 @@ services:
             - ATLANTIS_GITLAB_HOSTNAME=$ATLANTIS_GITLAB_HOSTNAME
             - ATLANTIS_REPO_WHITELIST=$ATLANTIS_REPO_WHITELIST
             - ATLANTIS_TFE_TOKEN=$ATLANTIS_TFE_TOKEN
+            - ATLANTIS_REPO_CONFIG_JSON=$ATLANTIS_REPO_CONFIG_JSON
         deploy:
           replicas: 1
           labels:
